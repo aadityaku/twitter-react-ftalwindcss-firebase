@@ -5,12 +5,12 @@ const SubItem = ({icon,name,icon2}) => {
     return (
         
         <div className="flex gap-4  cursor-pointer rounded-full  font-sans  ">
-            <div className="hover:bg-gray-300 flex  gap-x-3.5 p-3 py-2.5 pr-16 mt-2.5 items-center  rounded-full ">
+            <div className="hover:bg-gray-200 dark:hover:bg-gray-600 flex  gap-x-3.5 p-3 py-2.5 pr-16 mt-2.5 items-center  rounded-full ">
+               
                 <div className='' >
-                    {icon2} 
-                </div>
-            
-                 <div className="text-xl  ml-2 font-normal ">
+                   {icon2} 
+               </div> 
+                 <div className="text-xl dark:text-gray-200  ml-2 font-normal ">
                     {name}
                 </div>
             </div>
@@ -34,7 +34,8 @@ const FooterLeft = () => {
     )
 }
 
-const Left = () => {
+const Left = ({isDarkMode}) => {
+    // console.log(isDarkMode);
   return (
     
    <div className="px-10  ml-20 mt-1">
@@ -42,8 +43,13 @@ const Left = () => {
             {logo}
         </div>
         {
-            leftList.map((item,index) => (
-                <SubItem icon={item.active} icon2={item.inActive} name={item.name} key={index} />
+          !isDarkMode &&  leftList.map((item,index) => (
+                <SubItem  icon={item.active} icon2={item.inActive} name={item.name} key={index} />
+            ))
+        }
+        {
+          isDarkMode &&  leftList.map((item,index) => (
+                <SubItem  icon={item.active}  icon2={item.isDark} name={item.name} key={index} />
             ))
         }
         <div className="bg-blue-500 text-lg font-bold hover:bg-blue-600 text-white items-center  text-center cursor-pointer rounded-full py-3.5 mt-3  ">
