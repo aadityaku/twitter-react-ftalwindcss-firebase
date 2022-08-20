@@ -13,7 +13,7 @@ const IconList = ({isDarkMode}) => {
                 <div className="flex items-center hover:text-blue-600" onClick={() => setActiveComment(!activeComment)} >
                     <div className="rounded-full h-7  w-7 hover:bg-blue-100 hover:rounded-full p-1 " >
                         {!isDarkMode && !activeComment && viewTweetIcon[0].inActive}
-                        {isDarkMode && !activeComment && viewTweetIcon[0].inActive}
+                        {isDarkMode && !activeComment && viewTweetIcon[0].isDark}
                         { activeComment && viewTweetIcon[0].active}
                     </div>
                     <div className={"text-sm ml-3 " + (activeComment? 'text-blue-600' : '')}>
@@ -22,25 +22,28 @@ const IconList = ({isDarkMode}) => {
                 </div>
                 <div className="flex items-center hover:text-green-600" onClick={() => setActiveRetweet(!activeRetweet)}>
                     <div className="rounded-full h-7 w-7 hover:bg-green-200 hover:rounded-full p-1 " >
-                        { !activeRetweet && viewTweetIcon[1].inActive}
+                        { !isDarkMode && !activeRetweet && viewTweetIcon[1].inActive}
+                        { isDarkMode && !activeRetweet && viewTweetIcon[1].isDark}
                         { activeRetweet && viewTweetIcon[1].active}
                     </div>
-                    <div className={"text-sm ml-3 text-" + (activeRetweet? 'green-600' : '')}>
+                    <div className={"text-sm ml-3 " + (activeRetweet? 'text-green-600' : '')}>
                         {viewTweetIcon[1].count}
                     </div>
                 </div>
                 <div className="flex items-center hover:text-red-600" onClick={() => setActiveLike(!activeLike)}>
                     <div className="rounded-full h-7 w-7 hover:bg-red-200 hover:rounded-full p-1" >
-                        { !activeLike && viewTweetIcon[2].inActive}
+                        { !isDarkMode && !activeLike && viewTweetIcon[2].inActive}
+                        { isDarkMode && !activeLike && viewTweetIcon[2].isDark}
                         { activeLike && viewTweetIcon[2].active}
                     </div>
-                    <div className={"text-sm ml-3 text-" + (activeLike? 'red-600' : '') }>
+                    <div className={"text-sm ml-3 " + (activeLike? 'text-red-600' : '') }>
                         {viewTweetIcon[2].count}
                     </div>
                 </div>
                 <div className="flex  items-center " onClick={() => setActiveShare(!activeShare)}>
                     <div className="rounded-full h-7 w-7 hover:bg-blue-100 hover:rounded-full p-1" >
-                        { !activeShare && viewTweetIcon[3].inActive}
+                        { !isDarkMode && !activeShare && viewTweetIcon[3].inActive}
+                        { isDarkMode && !activeShare && viewTweetIcon[3].isDark}
                         { activeShare && viewTweetIcon[3].active}
                     </div>
                    
@@ -48,55 +51,6 @@ const IconList = ({isDarkMode}) => {
          </div>
     )
 }
-// const IconListIsDark = () =>{
-//     const [activeComment,setActiveComment] = useState(false)
-//     const [activeRetweet,setActiveRetweet] = useState(false)
-//     const [activeLike,setActiveLike] = useState(false)
-//     const [activeShare,setActiveShare] = useState(false)
-
-//     return(
-      
-//         <div className="flex justify-between mr-28 py-4 ">
-//                 <div className="flex items-center hover:text-blue-600 " onClick={() => setActiveComment(!activeComment)} >
-//                     <div className="rounded-full h-7  w-7  dark:hover:bg-blue-200 hover:rounded-full p-1 " >
-//                         { !activeComment && viewTweetIcon[0].isDark}
-//                         { activeComment && viewTweetIcon[0].active}
-                        
-//                     </div>
-//                     <div className={"text-sm ml-3 " + (activeComment? 'text-blue-600' : '')}>
-//                         {viewTweetIcon[0].count}
-//                     </div>
-//                 </div>
-//                 <div className="flex items-center hover:text-green-600" onClick={() => setActiveRetweet(!activeRetweet)}>
-//                     <div className="rounded-full h-7 w-7 hover:bg-green-200 hover:rounded-full p-1 " >
-//                         { !activeRetweet && viewTweetIcon[1].isDark}
-//                         { activeRetweet && viewTweetIcon[1].active}
-                       
-//                     </div>
-//                     <div className={"text-sm ml-3 text-" + (activeRetweet? 'green-600' : '')}>
-//                         {viewTweetIcon[1].count}
-//                     </div>
-//                 </div>
-//                 <div className="flex items-center hover:text-red-600" onClick={() => setActiveLike(!activeLike)}>
-//                     <div className="rounded-full h-7 w-7 hover:bg-red-200 hover:rounded-full p-1" >
-//                         { !activeLike && viewTweetIcon[2].isDark}
-//                         { activeLike && viewTweetIcon[2].active}
-//                     </div>
-//                     <div className={"text-sm ml-3 text-" + (activeLike? 'red-600' : '') }>
-//                         {viewTweetIcon[2].count}
-//                     </div>
-//                 </div>
-//                 <div className="flex  items-center " onClick={() => setActiveShare(!activeShare)}>
-//                     <div className="rounded-full h-7 w-7 hover:bg-blue-100 hover:rounded-full p-1" >
-//                         { !activeShare && viewTweetIcon[3].isDark}
-//                         { activeShare && viewTweetIcon[3].active}
-//                     </div>
-                   
-//                 </div>
-//          </div>
-//     )
-    
-// }
 
 const PlaceHolder = () => (
     <div className=" bg-white dark:bg-black dark:border-gray-800 border border-gray-200 justify-between px-5 py-2 hover:bg-gray-100 cursor-pointer">
